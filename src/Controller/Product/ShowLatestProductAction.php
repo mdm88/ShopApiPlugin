@@ -12,6 +12,7 @@ use Sylius\ShopApiPlugin\ViewRepository\Product\ProductLatestViewRepositoryInter
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Swagger\Annotations as SWG;
 
 final class ShowLatestProductAction
 {

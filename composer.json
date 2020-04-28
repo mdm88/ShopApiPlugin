@@ -8,7 +8,8 @@
 
         "sylius/core-bundle": "^1.4",
         "lexik/jwt-authentication-bundle": "^2.5",
-        "symfony/messenger": "^4.3"
+        "symfony/messenger": "^4.3",
+        "nelmio/api-doc-bundle": "^3.6"
     },
     "require-dev": {
         "lchrusciel/api-test-case": "^4.0",
