@@ -6,6 +6,6 @@ namespace Sylius\ShopApiPlugin\View\Product;
 
 class ProductListView
 {
-    /** @var array */
+    /** @var ProductView[] */
     public $items = [];
 }
