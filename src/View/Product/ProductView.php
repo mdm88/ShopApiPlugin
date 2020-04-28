@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\View\Product;
 
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
+
 class ProductView
 {
     /** @var string */
@@ -36,19 +39,38 @@ class ProductView
     /** @var string */
     public $averageRating;
 
-    /** @var ProductTaxonView */
+    /**
+     * @var ProductTaxonView
+     * @SWG\Property(ref=@Model(type=Sylius\ShopApiPlugin\View\Product\ProductTaxonView::class))
+     */
     public $taxons;
 
-    /** @var array */
+    /**
+     * @var array
+     * @SWG\Property(
+     *     type="array",
+     *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\Product\ProductVariantView::class))
+     * )
+     */
     public $variants = [];
 
-    /** @var array */
+    /**
+     * @var array
+     */
     public $attributes = [];
 
-    /** @var array */
+    /**
+     * @var array
+     */
     public $associations = [];
 
-    /** @var array */
+    /**
+     * @var array
+     * @SWG\Property(
+     *     type="array",
+     *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\ImageView::class))
+     * )
+     */
     public $images = [];
 
     public function __construct()
