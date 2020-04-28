@@ -34,6 +34,29 @@ final class ShowLatestProductAction
         $this->channelContext = $channelContext;
     }
 
+    /**
+     * @SWG\Parameter(
+     *     name="locale",
+     *     in="query",
+     *     type="string",
+     *     description="Locale in which products should be shown."
+     *     required=false
+     * )
+     * @SWG\Parameter(
+     *     name="limit",
+     *     in="query",
+     *     type="integer",
+     *     description="Number of expected products per page."
+     *     required=false
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns the rewards of an user",
+     *     @SWG\Schema(
+     *         type="array"
+     *     )
+     * )
+     */
     public function __invoke(Request $request): Response
     {
         try {
