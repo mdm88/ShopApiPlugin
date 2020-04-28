@@ -37,6 +37,10 @@ final class ShowLatestProductAction
     }
 
     /**
+     * Show latest products.
+     *
+     * This endpoint will return an array of latest products.
+     *
      * @SWG\Parameter(
      *     name="locale",
      *     in="query",
@@ -53,7 +57,7 @@ final class ShowLatestProductAction
      * )
      * @SWG\Response(
      *     response=200,
-     *     description="Returns the rewards of an user",
+     *     description="Array of latest products.",
      *     @SWG\Schema(
      *         type="array",
      *         @SWG\Items(ref=@Model(type=Sylius\Component\Product\Model\Product::class))
