@@ -58,7 +58,7 @@ final class ShowLatestProductAction
      * @SWG\Response(
      *     response=200,
      *     description="Array of latest products.",
-     *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\Product\ProductListView::class)
+     *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\Product\ProductListView::class))
      * )
      */
     public function __invoke(Request $request): Response
