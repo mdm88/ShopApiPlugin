@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\View\Product;
 
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
+use Sylius\ShopApiPlugin\View\ImageView;
 
 class ProductView
 {
@@ -65,7 +66,7 @@ class ProductView
     public $associations = [];
 
     /**
-     * @var array
+     * @var ImageView[]
      * @SWG\Property(
      *     type="array",
      *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\ImageView::class))
