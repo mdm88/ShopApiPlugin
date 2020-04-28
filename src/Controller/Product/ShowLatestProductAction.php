@@ -40,14 +40,14 @@ final class ShowLatestProductAction
      *     name="locale",
      *     in="query",
      *     type="string",
-     *     description="Locale in which products should be shown."
+     *     description="Locale in which products should be shown.",
      *     required=false
      * )
      * @SWG\Parameter(
      *     name="limit",
      *     in="query",
      *     type="integer",
-     *     description="Number of expected products per page."
+     *     description="Number of expected products per page.",
      *     required=false
      * )
      * @SWG\Response(
