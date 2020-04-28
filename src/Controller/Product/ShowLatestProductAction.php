@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Product;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\ShopApiPlugin\ViewRepository\Product\ProductLatestViewRepositoryInterface;
@@ -54,7 +55,8 @@ final class ShowLatestProductAction
      *     response=200,
      *     description="Returns the rewards of an user",
      *     @SWG\Schema(
-     *         type="array"
+     *         type="array",
+     *         @SWG\Items(ref=@Model(type=Sylius\Component\Product\Model\Product::class))
      *     )
      * )
      */
