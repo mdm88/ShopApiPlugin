@@ -45,6 +45,37 @@ final class AddReviewBySlugAction
         $this->addReviewBySlugCommandProvider = $addReviewBySlugCommandProvider;
     }
 
+    /**
+     * Add a review to the product.
+     *
+     * This endpoint will allow you to add a new review to the product.
+     * Remember, that it should be accepted by an administrator before it will be available in the review list.
+     *
+     * @SWG\Tag(name="Products")
+     * @SWG\Parameter(
+     *     name="slug",
+     *     in="path",
+     *     type="string",
+     *     description="Slug of expected product.",
+     *     required=true
+     * )
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=201,
+     *     description="Review has been added to the product."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed."
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         /** @var ChannelInterface $channel */

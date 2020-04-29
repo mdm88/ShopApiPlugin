@@ -34,6 +34,34 @@ final class ShowProductDetailsByCodeAction
         $this->channelContext = $channelContext;
     }
 
+    /**
+     * Show a product with the given code.
+     *
+     * This endpoint will return a product with the given code.
+     *
+     * @SWG\Tag(name="Products")
+     * @SWG\Parameter(
+     *     name="code",
+     *     in="path",
+     *     type="string",
+     *     description="Code of expected product.",
+     *     required=true
+     * )
+     * @SWG\Parameter(
+     *     name="locale",
+     *     in="query",
+     *     type="string",
+     *     description="Locale in which products should be shown.",
+     *     required=false
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="Show a product with the given code."
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         try {

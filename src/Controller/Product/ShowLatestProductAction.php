@@ -41,7 +41,7 @@ final class ShowLatestProductAction
      *
      * This endpoint will return an array of latest products.
      *
-     * @SWG\Tag(name="products")
+     * @SWG\Tag(name="Products")
      * @SWG\Parameter(
      *     name="locale",
      *     in="query",
@@ -61,6 +61,9 @@ final class ShowLatestProductAction
      *     description="Array of latest products.",
      *     @Model(type=Sylius\ShopApiPlugin\View\Product\ProductListView::class)
      * )
+     *
+     * @param Request $request
+     * @return Response
      */
     public function __invoke(Request $request): Response
     {

@@ -33,6 +33,27 @@ final class ShowProductReviewsByCodeAction
         $this->channelContext = $channelContext;
     }
 
+    /**
+     * Show reviews.
+     *
+     * This endpoint will return a paginated list of all reviews related to the product identified by slug.
+     *
+     * @SWG\Tag(name="Products")
+     * @SWG\Parameter(
+     *     name="slug",
+     *     in="path",
+     *     type="string",
+     *     description="Slug of expected product.",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="A paginated list of all reviews related to the product identified by slug."
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         $channel = $this->channelContext->getChannel();
