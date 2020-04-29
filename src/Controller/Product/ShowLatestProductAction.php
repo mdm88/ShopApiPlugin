@@ -41,6 +41,7 @@ final class ShowLatestProductAction
      *
      * This endpoint will return an array of latest products.
      *
+     * @SWG\Tag(name="products")
      * @SWG\Parameter(
      *     name="locale",
      *     in="query",
