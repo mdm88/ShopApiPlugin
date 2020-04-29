@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Product;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\ShopApiPlugin\CommandProvider\ChannelBasedCommandProviderInterface;
@@ -63,7 +64,8 @@ final class AddReviewByCodeAction
      * @SWG\Parameter(
      *     name="content",
      *     in="body",
-     *     required=true
+     *     required=true,
+     *     @Model(ref=Sylius\ShopApiPlugin\Command\Product\AddProductReviewByCode::class)
      * )
      * @SWG\Response(
      *     response=201,
