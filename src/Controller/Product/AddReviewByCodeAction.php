@@ -65,7 +65,7 @@ final class AddReviewByCodeAction
      *     name="content",
      *     in="body",
      *     required=true,
-     *     @Model(ref=Sylius\ShopApiPlugin\Command\Product\AddProductReviewByCode::class)
+     *     @Model(type=Sylius\ShopApiPlugin\Command\Product\AddProductReviewByCode::class)
      * )
      * @SWG\Response(
      *     response=201,

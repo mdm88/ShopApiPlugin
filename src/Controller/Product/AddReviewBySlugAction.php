@@ -65,7 +65,7 @@ final class AddReviewBySlugAction
      *     name="content",
      *     in="body",
      *     required=true,
-     *     @Model(ref=Sylius\ShopApiPlugin\Command\Product\AddProductReviewBySlug::class)
+     *     @Model(type=Sylius\ShopApiPlugin\Command\Product\AddProductReviewBySlug::class)
      * )
      * @SWG\Response(
      *     response=201,
