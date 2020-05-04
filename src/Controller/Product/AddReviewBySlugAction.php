@@ -73,7 +73,7 @@ final class AddReviewBySlugAction
      * )
      * @SWG\Response(
      *     response=400,
-     *     description="Invalid input, validation failed."
+     *     description="Invalid input, validation failed.",
      *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
      * )
      *
