@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Product;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\ShopApiPlugin\Model\PaginatorDetails;
@@ -13,6 +14,7 @@ use Sylius\ShopApiPlugin\ViewRepository\Product\ProductCatalogViewRepositoryInte
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Swagger\Annotations as SWG;
 
 final class ShowProductCatalogByTaxonSlugAction
 {
@@ -35,6 +37,49 @@ final class ShowProductCatalogByTaxonSlugAction
         $this->channelContext = $channelContext;
     }
 
+    /**
+     * Show product catalog.
+     *
+     * This endpoint will return a paginated list of products for given taxon.
+     *
+     * @SWG\Tag(name="Products")
+     * @SWG\Parameter(
+     *     name="taxonSlug",
+     *     in="path",
+     *     type="string",
+     *     description="Slug of taxonomy for which products should be listed.",
+     *     required=true
+     * )
+     * @SWG\Parameter(
+     *     name="locale",
+     *     in="query",
+     *     type="string",
+     *     description="Locale in which products should be shown.",
+     *     required=false
+     * )
+     * @SWG\Parameter(
+     *     name="limit",
+     *     in="query",
+     *     type="integer",
+     *     description="Number of expected products per page.",
+     *     required=false
+     * )
+     * @SWG\Parameter(
+     *     name="page",
+     *     in="query",
+     *     type="integer",
+     *     description="Page number.",
+     *     required=false
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="Array of latest products.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Product\PageView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         try {
