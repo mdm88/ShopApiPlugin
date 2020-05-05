@@ -71,9 +71,8 @@ final class ChangeItemQuantityAction
      * @SWG\Parameter(
      *     name="content",
      *     in="body",
-     *     type="string",
-     *     description="Description of items. The same rules applied to each of the array values as to the previous point.",
-     *     required=true
+     *     required=true,
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Cart\ChangeItemQuantityRequest::class)
      * )
      * @SWG\Response(
      *     response=204,

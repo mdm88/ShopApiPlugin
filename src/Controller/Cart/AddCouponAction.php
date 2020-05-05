@@ -64,8 +64,8 @@ final class AddCouponAction
      * @SWG\Parameter(
      *     name="content",
      *     in="body",
-     *     type="string",
-     *     required=true
+     *     required=true,
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Cart\AddCouponRequest::class)
      * )
      * @SWG\Response(
      *     response=204,

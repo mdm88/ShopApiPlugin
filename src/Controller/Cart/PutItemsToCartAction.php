@@ -75,9 +75,12 @@ final class PutItemsToCartAction
      * @SWG\Parameter(
      *     name="content",
      *     in="body",
-     *     type="string",
      *     description="Description of items. The smallest required amount of data is a product code and quantity for a simple product. Configurable products will require an additional `variant_code` or `options` field, but never both.",
-     *     required=true
+     *     required=true,
+     *     @SWG\Schema(
+     *         type="array",
+     *         @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\Request\Cart\PutSimpleItemToCartRequest::class))
+     *     )
      * )
      * @SWG\Response(
      *     response=201,
