@@ -6,10 +6,12 @@ namespace Sylius\ShopApiPlugin\Controller\Cart;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\ShopApiPlugin\ViewRepository\Cart\CartViewRepositoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Swagger\Annotations as SWG;
 
 final class SummarizeAction
 {
@@ -27,6 +29,33 @@ final class SummarizeAction
         $this->viewHandler = $viewHandler;
     }
 
+    /**
+     * Show summarized cart.
+     *
+     * This endpoint shows you the current calculated state of cart.
+     *
+     * @SWG\Tag(name="Cart")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="path",
+     *     type="string",
+     *     description="Cart identifier.",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=201,
+     *     description="Current state of the cart, with calculated prices and related items.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         try {

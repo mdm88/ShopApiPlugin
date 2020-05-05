@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Cart;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\ShopApiPlugin\Normalizer\RequestCartTokenNormalizerInterface;
 use Sylius\ShopApiPlugin\Request\Cart\PutOptionBasedConfigurableItemToCartRequest;
 use Sylius\ShopApiPlugin\Request\Cart\PutSimpleItemToCartRequest;
@@ -20,6 +21,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Swagger\Annotations as SWG;
 
 final class PutItemsToCartAction
 {
@@ -57,6 +59,40 @@ final class PutItemsToCartAction
         $this->validationErrorViewClass = $validationErrorViewClass;
     }
 
+    /**
+     * Add multiple items to your cart.
+     *
+     * This endpoint will allow you to add a new item to your cart.
+     *
+     * @SWG\Tag(name="Cart")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="path",
+     *     type="string",
+     *     description="Cart identifier.",
+     *     required=true
+     * )
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     type="string",
+     *     description="Description of items. The smallest required amount of data is a product code and quantity for a simple product. Configurable products will require an additional `variant_code` or `options` field, but never both.",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=201,
+     *     description="Item has been added to the cart",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         /** @var ConstraintViolationListInterface[] $validationResults */

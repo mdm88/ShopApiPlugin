@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Cart;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\ShopApiPlugin\Command\Cart\AddCoupon;
 use Sylius\ShopApiPlugin\CommandProvider\CommandProviderInterface;
 use Sylius\ShopApiPlugin\Factory\ValidationErrorViewFactoryInterface;
@@ -14,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Swagger\Annotations as SWG;
 
 final class AddCouponAction
 {
@@ -46,6 +48,38 @@ final class AddCouponAction
         $this->addCouponCommandProvider = $addCouponCommandProvider;
     }
 
+    /**
+     * Add a promotion coupon code to the cart.
+     *
+     * This endpoint will allow you to add a promotion coupon code to the cart and receive the discount.
+     *
+     * @SWG\Tag(name="Cart")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="path",
+     *     type="string",
+     *     description="Cart identifier.",
+     *     required=true
+     * )
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     type="string",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="Coupon has been assigned to the cart."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Cart\EstimatedShippingCostView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         $validationResults = $this->addCouponCommandProvider->validate($request);

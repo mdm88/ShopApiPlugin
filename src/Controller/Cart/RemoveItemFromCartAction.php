@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Cart;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\ShopApiPlugin\Command\Cart\RemoveItemFromCart;
 use Sylius\ShopApiPlugin\CommandProvider\CommandProviderInterface;
 use Sylius\ShopApiPlugin\Factory\ValidationErrorViewFactoryInterface;
@@ -14,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Swagger\Annotations as SWG;
 
 final class RemoveItemFromCartAction
 {
@@ -46,6 +48,39 @@ final class RemoveItemFromCartAction
         $this->removeItemFromCartCommandProvider = $removeItemFromCartCommandProvider;
     }
 
+    /**
+     * Remove cart item.
+     *
+     * This endpoint will remove one item from your cart.
+     *
+     * @SWG\Tag(name="Cart")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="path",
+     *     type="string",
+     *     description="Cart identifier.",
+     *     required=true
+     * )
+     * @SWG\Parameter(
+     *     name="identifier",
+     *     in="path",
+     *     type="string",
+     *     description="Identifier of a specific item. Can be found in the cart summary.",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="Cart item has been removed."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         $validationResults = $this->removeItemFromCartCommandProvider->validate($request);
