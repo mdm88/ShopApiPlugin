@@ -10,7 +10,7 @@ class ValidationErrorView
 {
     /**
      * @var int
-     * @SWG\Property(type="int")
+     * @SWG\Property(type="integer")
      */
     public $code;
 
@@ -20,6 +20,8 @@ class ValidationErrorView
      */
     public $message;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     public $errors = [];
 }

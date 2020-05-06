@@ -42,7 +42,7 @@ class ProductView
 
     /**
      * @var ProductTaxonView
-     * @SWG\Property(ref=@Model(type=Sylius\ShopApiPlugin\View\Product\ProductTaxonView::class))
+     * @SWG\Property(ref=@Model(type=ProductTaxonView::class))
      */
     public $taxons;
 
@@ -50,7 +50,7 @@ class ProductView
      * @var array
      * @SWG\Property(
      *     type="array",
-     *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\Product\ProductVariantView::class))
+     *     @SWG\Items(ref=@Model(type=ProductVariantView::class))
      * )
      */
     public $variants = [];
@@ -69,7 +69,7 @@ class ProductView
      * @var ImageView[]
      * @SWG\Property(
      *     type="array",
-     *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\ImageView::class))
+     *     @SWG\Items(ref=@Model(type=ImageView::class))
      * )
      */
     public $images = [];

@@ -4,17 +4,31 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\View\Cart;
 
+use Swagger\Annotations as SWG;
+
 class PaymentMethodView
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $code;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $name;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $description;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $instructions;
 }
