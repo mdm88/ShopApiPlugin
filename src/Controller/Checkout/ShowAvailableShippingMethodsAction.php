@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Checkout;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use SM\Factory\FactoryInterface;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\ShipmentInterface;
@@ -18,6 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Swagger\Annotations as SWG;
 
 final class ShowAvailableShippingMethodsAction
 {
@@ -50,6 +52,32 @@ final class ShowAvailableShippingMethodsAction
         $this->stateMachineFactory = $stateMachineFactory;
     }
 
+    /**
+     * Get available shipping methods.
+     *
+     * This endpoint will show you available shipping methods for all cart shipments.
+     *
+     * @SWG\Tag(name="Checkout")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="path",
+     *     type="string",
+     *     description="Cart identifier.",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="List of available shipping methods."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         /** @var OrderInterface|null $cart */

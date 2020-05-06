@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Checkout;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\ShopApiPlugin\CommandProvider\CommandProviderInterface;
 use Sylius\ShopApiPlugin\Exception\WrongUserException;
 use Sylius\ShopApiPlugin\Factory\ValidationErrorViewFactoryInterface;
@@ -13,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Swagger\Annotations as SWG;
 
 final class CompleteOrderAction
 {
@@ -45,6 +47,38 @@ final class CompleteOrderAction
         $this->completeOrderCommandProvider = $completeOrderCommandProvider;
     }
 
+    /**
+     * Completing checkout.
+     *
+     * This endpoint will allow you to complete the checkout.
+     *
+     * @SWG\Tag(name="Checkout")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="path",
+     *     type="string",
+     *     description="Cart identifier.",
+     *     required=true
+     * )
+     * @SWG\Parameter(
+     *     name="contents",
+     *     in="body",
+     *     required=true,
+     *     @Model(type="Sylius\ShopApiPlugin\Request\Checkout\CompleteOrderRequest::class")
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="Checkout has been completed."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         try {
