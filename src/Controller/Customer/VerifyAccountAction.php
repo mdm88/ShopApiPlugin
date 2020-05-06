@@ -11,6 +11,7 @@ use Sylius\ShopApiPlugin\Factory\ValidationErrorViewFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Swagger\Annotations as SWG;
 
 final class VerifyAccountAction
 {
@@ -38,6 +39,26 @@ final class VerifyAccountAction
         $this->verifyAccountCommandProvider = $verifyAccountCommandProvider;
     }
 
+    /**
+     * Registering a new user.
+     *
+     * This creates a new user that can log in the shop.
+     *
+     * @SWG\Tag(name="Users")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="query",
+     *     type="string",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="User unlocked."
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         $validationResults = $this->verifyAccountCommandProvider->validate($request);

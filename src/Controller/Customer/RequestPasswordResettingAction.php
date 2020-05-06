@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\ShopApiPlugin\CommandProvider\ChannelBasedCommandProviderInterface;
@@ -16,6 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Swagger\Annotations as SWG;
 
 final class RequestPasswordResettingAction
 {
@@ -57,6 +59,31 @@ final class RequestPasswordResettingAction
         $this->validationErrorViewFactory = $validationErrorViewFactory;
     }
 
+    /**
+     * Request resetting password of user with passed email.
+     *
+     * Email with reset password path will be sent to user. Default path for password resetting is `/password-reset/{token}`. To change it, you need to override template `@SyliusShopApi\\Email\\passwordReset.html.twig`.
+     *
+     * @SWG\Tag(name="Users")
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     required=true,
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Customer\GenerateResetPasswordTokenRequest::class)
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="Reset password request has been sent if the email exists in our system."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         /** @var ChannelInterface $channel */

@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Checkout;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use SM\Factory\FactoryInterface;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\PaymentInterface;
@@ -50,6 +51,32 @@ final class ShowAvailablePaymentMethodsAction
         $this->stateMachineFactory = $stateMachineFactory;
     }
 
+    /**
+     * Get available payment methods.
+     *
+     * This endpoint will show you available payment methods for an order.
+     *
+     * @SWG\Tag(name="Checkout")
+     * @SWG\Parameter(
+     *     name="token",
+     *     in="path",
+     *     type="string",
+     *     description="Cart identifier.",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="List of available payment methods."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         /** @var OrderInterface|null $cart */

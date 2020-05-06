@@ -6,14 +6,41 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\ShopApiPlugin\View\ValidationErrorView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Webmozart\Assert\Assert;
+use Swagger\Annotations as SWG;
 
 final class CustomerController extends ResourceController
 {
+    /**
+     * Registering a new user.
+     *
+     * This creates a new user that can log in the shop.
+     *
+     * @SWG\Tag(name="Users")
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     required=true,
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Customer\RegisterCustomerRequest::class)
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="The user was successfully created."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function createAction(Request $request): Response
     {
         $response = parent::createAction($request);

@@ -7,6 +7,7 @@ namespace Sylius\ShopApiPlugin\Controller\Order;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use JMS\Serializer\Exclusion\GroupsExclusionStrategy;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\ShopApiPlugin\Provider\LoggedInShopUserProviderInterface;
 use Sylius\ShopApiPlugin\View\Order\PlacedOrderView;
@@ -14,6 +15,7 @@ use Sylius\ShopApiPlugin\ViewRepository\Order\PlacedOrderViewRepositoryInterface
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Swagger\Annotations as SWG;
 
 final class ShowOrderDetailsAction
 {
@@ -36,6 +38,32 @@ final class ShowOrderDetailsAction
         $this->placedOrderQuery = $placedOrderQuery;
     }
 
+    /**
+     * Shows a list of orders of the customer.
+     *
+     * This endpoint will return an array of orders of the customer.
+     *
+     * @SWG\Tag(name="Orders")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Shows a list of placed orders of the customer.",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\View\Order\PlacedOrderView::class))
+     *     )
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="User token invalid."
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Order with given tokenValue not found."
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         $groups = [GroupsExclusionStrategy::DEFAULT_GROUP];

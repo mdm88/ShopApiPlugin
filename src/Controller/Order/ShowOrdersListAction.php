@@ -34,6 +34,36 @@ final class ShowOrdersListAction
         $this->placedOrderQuery = $placedOrderQuery;
     }
 
+    /**
+     * Shows details of specific customer's order.
+     *
+     * This endpoint will return a specific customer's order.
+     *
+     * @SWG\Tag(name="Orders")
+     * @SWG\Parameter(
+     *     name="tokenValue",
+     *     in="path",
+     *     type="string",
+     *     description="Order token.",
+     *     required=true
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="Shows details of specific customer's order with given tokenValue.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Order\PlacedOrderView::class)
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="User token invalid."
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Order with given tokenValue not found."
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         try {
