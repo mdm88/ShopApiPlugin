@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sylius\ShopApiPlugin\View\Cart;
 
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\View\PriceView;
 
 class EstimatedShippingCostView
