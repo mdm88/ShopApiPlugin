@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Checkout;
 
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Cart\AddressOrder;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Model\Address;
@@ -15,10 +17,16 @@ class AddressOrderRequest implements RequestInterface
     /** @var string|null */
     protected $token;
 
-    /** @var array|null */
+    /**
+     * @var array|null
+     * @SWG\Property(ref=@Model(type=Address::class))
+     */
     protected $shippingAddress;
 
-    /** @var array|null */
+    /**
+     * @var array|null
+     * @SWG\Property(ref=@Model(type=Address::class))
+     */
     protected $billingAddress;
 
     protected function __construct(Request $request)

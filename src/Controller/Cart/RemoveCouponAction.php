@@ -63,7 +63,8 @@ final class RemoveCouponAction
      * )
      * @SWG\Response(
      *     response=204,
-     *     description="Coupon has been removed from the cart."
+     *     description="Coupon has been removed from the cart.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
      * )
      * @SWG\Response(
      *     response=400,

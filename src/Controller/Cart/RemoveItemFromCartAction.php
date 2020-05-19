@@ -70,7 +70,8 @@ final class RemoveItemFromCartAction
      * )
      * @SWG\Response(
      *     response=204,
-     *     description="Cart item has been removed."
+     *     description="Cart item has been removed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
      * )
      * @SWG\Response(
      *     response=400,

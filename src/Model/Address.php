@@ -4,39 +4,70 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Model;
 
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use Webmozart\Assert\Assert;
 
 final class Address
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     private $firstName;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     private $lastName;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     private $city;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     private $countryCode;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     private $street;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     private $postcode;
 
-    /** @var ?string */
+    /**
+     * @var ?string
+     * @SWG\Property(type="string")
+     */
     private $provinceName;
 
-    /** @var ?string */
+    /**
+     * @var ?string
+     * @SWG\Property(type="string")
+     */
     private $provinceCode;
 
-    /** @var ?string */
+    /**
+     * @var ?string
+     * @SWG\Property(type="string")
+     */
     private $company;
 
-    /** @var ?string */
+    /**
+     * @var ?string
+     * @SWG\Property(type="string")
+     */
     private $phoneNumber;
 
     private function __construct(

@@ -76,7 +76,8 @@ final class ChangeItemQuantityAction
      * )
      * @SWG\Response(
      *     response=204,
-     *     description="Quantity has been changed."
+     *     description="Quantity has been changed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
      * )
      * @SWG\Response(
      *     response=400,

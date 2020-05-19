@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Cart;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Cart\AddCoupon;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Request\RequestInterface;
@@ -11,10 +12,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AddCouponRequest implements RequestInterface
 {
-    /** @var string|null */
+    /**
+     * @var string|null
+     */
     protected $token;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     * @SWG\Property(type="string")
+     */
     protected $coupon;
 
     protected function __construct(Request $request)

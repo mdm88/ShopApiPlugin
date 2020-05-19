@@ -10,34 +10,64 @@ use Sylius\ShopApiPlugin\View\ImageView;
 
 class ProductView
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $code;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $name;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $slug;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $channelCode;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $breadcrumb;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $description;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $shortDescription;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $metaKeywords;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $metaDescription;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $averageRating;
 
     /**

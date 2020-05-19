@@ -11,19 +11,32 @@ use Swagger\Annotations as SWG;
 
 class ProductVariantView
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $code;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $name;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     public $axis = [];
 
-    /** @var array */
+    /**
+     * @var array
+     */
     public $nameAxis = [];
 
-    /** @var bool */
+    /**
+     * @var bool
+     * @SWG\Property(type="boolean")
+     */
     public $available;
 
     /**

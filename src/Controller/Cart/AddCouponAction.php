@@ -69,7 +69,8 @@ final class AddCouponAction
      * )
      * @SWG\Response(
      *     response=204,
-     *     description="Coupon has been assigned to the cart."
+     *     description="Coupon has been assigned to the cart.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
      * )
      * @SWG\Response(
      *     response=400,

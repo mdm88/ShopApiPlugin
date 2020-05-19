@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Cart;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Cart\PutSimpleItemToCart;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Request\RequestInterface;
@@ -14,10 +15,16 @@ class PutSimpleItemToCartRequest implements RequestInterface
     /** @var string */
     protected $token;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $productCode;
 
-    /** @var int */
+    /**
+     * @var int
+     * @SWG\Property(type="integer")
+     */
     protected $quantity;
 
     protected function __construct(?string $token, ?string $productCode, ?int $quantity)

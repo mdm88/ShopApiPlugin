@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Cart;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Cart\ChangeItemQuantity;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Request\RequestInterface;
@@ -17,7 +18,10 @@ class ChangeItemQuantityRequest implements RequestInterface
     /** @var mixed */
     protected $id;
 
-    /** @var int */
+    /**
+     * @var int
+     * @SWG\Property(type="integer")
+     */
     protected $quantity;
 
     protected function __construct(Request $request)
