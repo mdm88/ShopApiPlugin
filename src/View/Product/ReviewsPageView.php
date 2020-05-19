@@ -7,7 +7,7 @@ namespace Sylius\ShopApiPlugin\View\Product;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
 
-class ReviewwsPageView
+class ReviewsPageView
 {
     /**
      * @var int
