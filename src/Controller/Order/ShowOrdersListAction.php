@@ -7,6 +7,7 @@ namespace Sylius\ShopApiPlugin\Controller\Order;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\ShopApiPlugin\Provider\LoggedInShopUserProviderInterface;
 use Sylius\ShopApiPlugin\ViewRepository\Order\PlacedOrderViewRepositoryInterface;
@@ -62,6 +63,7 @@ final class ShowOrdersListAction
      *     response=404,
      *     description="Order with given tokenValue not found."
      * )
+     * @Security(name="Bearer")
      *
      * @param Request $request
      * @return Response

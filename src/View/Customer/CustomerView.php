@@ -4,29 +4,55 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\View\Customer;
 
+use Swagger\Annotations as SWG;
+
 class CustomerView
 {
-    /** @var int */
+    /**
+     * @var int
+     * @SWG\Property(type="integer")
+     */
     public $id;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $firstName;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $lastName;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $email;
 
-    /** @var \DateTimeInterface|null */
+    /**
+     * @var \DateTimeInterface|null
+     * @SWG\Property(type="string")
+     */
     public $birthday;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     public $gender;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     * @SWG\Property(type="string")
+     */
     public $phoneNumber;
 
-    /** @var bool */
+    /**
+     * @var bool
+     * @SWG\Property(type="boolean")
+     */
     public $subscribedToNewsletter;
 }
