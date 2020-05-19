@@ -4,26 +4,43 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Command\Product;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 
 class AddProductReviewByCode implements CommandInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $productCode;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $channelCode;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $title;
 
-    /** @var int */
+    /**
+     * @var int
+     * @SWG\Property(type="integer")
+     */
     protected $rating;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $comment;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $email;
 
     public function __construct(

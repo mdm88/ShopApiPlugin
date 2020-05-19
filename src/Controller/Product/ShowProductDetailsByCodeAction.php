@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Product;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\ShopApiPlugin\ViewRepository\Product\ProductDetailsViewRepositoryInterface;
@@ -57,7 +58,8 @@ final class ShowProductDetailsByCodeAction
      * )
      * @SWG\Response(
      *     response=200,
-     *     description="Show a product with the given code."
+     *     description="Show a product with the given code.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Product\ProductView::class)
      * )
      *
      * @param Request $request

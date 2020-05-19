@@ -62,7 +62,7 @@ final class RemoveItemFromCartAction
      *     required=true
      * )
      * @SWG\Parameter(
-     *     name="identifier",
+     *     name="id",
      *     in="path",
      *     type="string",
      *     description="Identifier of a specific item. Can be found in the cart summary.",

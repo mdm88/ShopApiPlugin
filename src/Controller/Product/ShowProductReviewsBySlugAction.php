@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Product;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\ShopApiPlugin\Model\PaginatorDetails;
 use Sylius\ShopApiPlugin\ViewRepository\Product\ProductReviewsViewRepositoryInterface;
@@ -41,15 +42,16 @@ final class ShowProductReviewsBySlugAction
      *
      * @SWG\Tag(name="Products")
      * @SWG\Parameter(
-     *     name="code",
+     *     name="slug",
      *     in="path",
      *     type="string",
-     *     description="Code of expected product.",
+     *     description="Slug of expected product.",
      *     required=true
      * )
      * @SWG\Response(
      *     response=200,
-     *     description="A paginated list of all reviews related to the product identified by code."
+     *     description="A paginated list of all reviews related to the product identified by code.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Product\PageView::class)
      * )
      *
      * @param Request $request
