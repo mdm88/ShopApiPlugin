@@ -51,7 +51,7 @@ final class ShowProductReviewsByCodeAction
      * @SWG\Response(
      *     response=200,
      *     description="A paginated list of all reviews related to the product identified by slug.",
-     *     @Model(type=Sylius\ShopApiPlugin\View\Product\PageView::class)
+     *     @Model(type=Sylius\ShopApiPlugin\View\Product\ReviewsPageView::class)
      * )
      *
      * @param Request $request
