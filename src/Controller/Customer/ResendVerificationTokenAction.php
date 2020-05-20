@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\ShopApiPlugin\CommandProvider\ChannelBasedCommandProviderInterface;
@@ -45,6 +46,29 @@ final class ResendVerificationTokenAction
         $this->resetVerificationTokenCommandProvider = $resetVerificationTokenCommandProvider;
     }
 
+    /**
+     * Resend verification email.
+     *
+     * @SWG\Tag(name="Users")
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     required=true,
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Customer\ResendVerificationTokenRequest::class)
+     * )
+     * @SWG\Response(
+     *     response=201,
+     *     description="The verification email was successfully sent."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         /** @var ChannelInterface $channel */

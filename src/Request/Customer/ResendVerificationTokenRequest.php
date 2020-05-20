@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Customer;
 
+use Swagger\Annotations as SWG;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Command\Customer\SendVerificationToken;
@@ -12,10 +13,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ResendVerificationTokenRequest implements ChannelBasedRequestInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $email;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $channelCode;
 
     protected function __construct(Request $request, string $channelCode)
