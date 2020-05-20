@@ -7,6 +7,7 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\ShopApiPlugin\CommandProvider\ChannelBasedCommandProviderInterface;
