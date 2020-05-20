@@ -7,6 +7,7 @@ namespace Sylius\ShopApiPlugin\Controller\Checkout;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use Sylius\ShopApiPlugin\CommandProvider\CommandProviderInterface;
 use Sylius\ShopApiPlugin\Exception\WrongUserException;
 use Sylius\ShopApiPlugin\Factory\ValidationErrorViewFactoryInterface;
@@ -75,6 +76,7 @@ final class CompleteOrderAction
      *     description="Invalid input, validation failed.",
      *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
      * )
+     * @Security(name="Bearer")
      *
      * @param Request $request
      * @return Response

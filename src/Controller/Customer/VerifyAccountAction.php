@@ -40,9 +40,7 @@ final class VerifyAccountAction
     }
 
     /**
-     * Registering a new user.
-     *
-     * This creates a new user that can log in the shop.
+     * Verify an account by verification token.
      *
      * @SWG\Tag(name="Users")
      * @SWG\Parameter(

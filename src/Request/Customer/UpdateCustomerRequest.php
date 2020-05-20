@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sylius\ShopApiPlugin\Request\Customer;
 
 use DateTimeImmutable;
+use Swagger\Annotations as SWG;
 use Sylius\Component\Core\Model\CustomerInterface;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
@@ -14,25 +15,46 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UpdateCustomerRequest implements ShopUserBasedRequestInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $firstName;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $lastName;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     * @SWG\Property(type="string")
+     */
     protected $email;
 
-    /** @var DateTimeImmutable|null */
+    /**
+     * @var DateTimeImmutable|null
+     * @SWG\Property(type="string")
+     */
     protected $birthday;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $gender;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     * @SWG\Property(type="string")
+     */
     protected $phoneNumber;
 
-    /** @var bool */
+    /**
+     * @var bool
+     * @SWG\Property(type="boolean")
+     */
     protected $subscribedToNewsletter;
 
     protected function __construct(Request $request, ShopUserInterface $user)

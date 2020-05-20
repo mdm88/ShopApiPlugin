@@ -6,6 +6,9 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Factory\Customer\CustomerViewFactoryInterface;
 use Sylius\ShopApiPlugin\Provider\LoggedInShopUserProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,6 +36,24 @@ final class LoggedInCustomerDetailsAction
         $this->customerViewFactory = $customerViewFactory;
     }
 
+    /**
+     * Provides currently logged in user details.
+     *
+     * @SWG\Tag(name="Users")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Provides currently logged in user details.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Customer\CustomerView::class)
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="User token invalid"
+     * )
+     * @Security(name="Bearer")
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         if (!$this->loggedInShopUserProvider->isUserLoggedIn()) {

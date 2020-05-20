@@ -6,6 +6,9 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use Swagger\Annotations as SWG;
 use Sylius\Component\Core\Model\CustomerInterface;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\ShopApiPlugin\CommandProvider\ShopUserBasedCommandProviderInterface;
@@ -53,6 +56,30 @@ final class UpdateCustomerAction
         $this->updateCustomerCommandProvider = $updateCustomerCommandProvider;
     }
 
+    /**
+     * Updates currently logged in users details.
+     *
+     * @SWG\Tag(name="Users")
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     required=true,
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Customer\UpdateCustomerRequest::class)
+     * )
+     * @SWG\Response(
+     *     response=200,
+     *     description="User successfully updated.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\Customer\CustomerView::class)
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="User token invalid"
+     * )
+     * @Security(name="Bearer")
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         if (!$this->loggedInUserProvider->isUserLoggedIn()) {

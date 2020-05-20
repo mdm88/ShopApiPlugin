@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Customer;
 
+use Swagger\Annotations as SWG;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Command\Customer\RegisterCustomer;
@@ -12,25 +13,46 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RegisterCustomerRequest implements ChannelBasedRequestInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $email;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $plainPassword;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $firstName;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $lastName;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $channelCode;
 
-    /** @var bool */
+    /**
+     * @var bool
+     * @SWG\Property(type="boolean")
+     */
     protected $subscribedToNewsletter;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $phoneNumber;
 
     protected function __construct(Request $request, string $channelCode)

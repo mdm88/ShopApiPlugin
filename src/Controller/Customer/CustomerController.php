@@ -16,31 +16,6 @@ use Swagger\Annotations as SWG;
 
 final class CustomerController extends ResourceController
 {
-    /**
-     * Registering a new user.
-     *
-     * This creates a new user that can log in the shop.
-     *
-     * @SWG\Tag(name="Users")
-     * @SWG\Parameter(
-     *     name="content",
-     *     in="body",
-     *     required=true,
-     *     @Model(type=Sylius\ShopApiPlugin\Request\Customer\RegisterCustomerRequest::class)
-     * )
-     * @SWG\Response(
-     *     response=204,
-     *     description="The user was successfully created."
-     * )
-     * @SWG\Response(
-     *     response=400,
-     *     description="Invalid input, validation failed.",
-     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
-     * )
-     *
-     * @param Request $request
-     * @return Response
-     */
     public function createAction(Request $request): Response
     {
         $response = parent::createAction($request);
