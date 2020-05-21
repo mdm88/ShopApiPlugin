@@ -68,5 +68,17 @@
             <argument type="service" id="sylius.shop_api_plugin.provider.current_user_provider" />
             <argument type="service" id="sylius.shop_api_plugin.command_provider.update_customer" />
         </service>
+
+        <service
+            id="sylius.shop_api_plugin.controller.customer.change_password_action"
+            class="Sylius\ShopApiPlugin\Controller\Customer\ChangePasswordAction"
+        >
+            <argument type="service" id="fos_rest.view_handler" />
+            <argument type="service" id="sylius.shop_api_plugin.factory.validation_error_view_factory" />
+            <argument type="service" id="sylius.shop_api_plugin.provider.current_user_provider" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+        </service>
     </services>
 </container>
