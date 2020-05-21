@@ -3,6 +3,7 @@
 namespace Sylius\ShopApiPlugin\Request\Customer;
 
 use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
 
 class ChangePasswordRequest
 {
