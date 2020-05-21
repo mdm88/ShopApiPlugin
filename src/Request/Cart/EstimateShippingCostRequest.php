@@ -4,17 +4,27 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Cart;
 
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 
 class EstimateShippingCostRequest
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string", property="cartToken")
+     */
     protected $cartToken;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string", property="countryCode")
+     */
     protected $countryCode;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string", property="provinceCode")
+     */
     protected $provinceCode;
 
     public function __construct(Request $request)

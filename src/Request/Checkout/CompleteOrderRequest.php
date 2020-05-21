@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Checkout;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Cart\CompleteOrder;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Request\RequestInterface;
@@ -11,10 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CompleteOrderRequest implements RequestInterface
 {
-    /** @var string|null */
+    /**
+     * @var string|null
+     * @SWG\Property(type="string")
+     */
     protected $token;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     * @SWG\Property(type="string")
+     */
     protected $notes;
 
     protected function __construct(Request $request)

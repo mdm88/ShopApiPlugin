@@ -14,18 +14,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AddressOrderRequest implements RequestInterface
 {
-    /** @var string|null */
+    /**
+     * @var string|null
+     * @SWG\Property(type="string")
+     */
     protected $token;
 
     /**
      * @var array|null
-     * @SWG\Property(ref=@Model(type=Address::class))
+     * @SWG\Property(ref=@Model(type=Address::class), property="shippingAddress")
      */
     protected $shippingAddress;
 
     /**
      * @var array|null
-     * @SWG\Property(ref=@Model(type=Address::class))
+     * @SWG\Property(ref=@Model(type=Address::class), property="billingAddress")
      */
     protected $billingAddress;
 

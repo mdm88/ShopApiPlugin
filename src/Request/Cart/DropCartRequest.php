@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Cart;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Cart\DropCart;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Request\RequestInterface;
@@ -11,7 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DropCartRequest implements RequestInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $token;
 
     protected function __construct(Request $request)

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Cart;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Cart\RemoveItemFromCart;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Request\RequestInterface;
@@ -11,10 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RemoveItemFromCartRequest implements RequestInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $token;
 
-    /** @var mixed */
+    /**
+     * @var mixed
+     * @SWG\Property(type="string")
+     */
     protected $id;
 
     protected function __construct(Request $request)

@@ -12,10 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ChangeItemQuantityRequest implements RequestInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $token;
 
-    /** @var mixed */
+    /**
+     * @var mixed
+     * @SWG\Property(type="string")
+     */
     protected $id;
 
     /**

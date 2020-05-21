@@ -4,18 +4,28 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Order;
 
+use Swagger\Annotations as SWG;
 use Sylius\ShopApiPlugin\Command\Order\UpdatePaymentMethod;
 use Symfony\Component\HttpFoundation\Request;
 
 class UpdatePaymentMethodRequest
 {
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $token;
 
-    /** @var mixed */
+    /**
+     * @var mixed
+     * @SWG\Property(type="string", property="paymentIdentifier")
+     */
     protected $paymentIdentifier;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string", property="paymentMethod")
+     */
     protected $paymentMethod;
 
     public function __construct(Request $request)

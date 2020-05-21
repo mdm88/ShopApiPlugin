@@ -22,13 +22,13 @@ class UpdateCustomerRequest implements ShopUserBasedRequestInterface
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="firstName")
      */
     protected $firstName;
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="lastName")
      */
     protected $lastName;
 
@@ -46,13 +46,13 @@ class UpdateCustomerRequest implements ShopUserBasedRequestInterface
 
     /**
      * @var string|null
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="phoneNumber")
      */
     protected $phoneNumber;
 
     /**
      * @var bool
-     * @SWG\Property(type="boolean")
+     * @SWG\Property(type="boolean", property="subscribedToNewsletter")
      */
     protected $subscribedToNewsletter;
 

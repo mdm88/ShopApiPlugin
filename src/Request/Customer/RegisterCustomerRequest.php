@@ -15,43 +15,42 @@ class RegisterCustomerRequest implements ChannelBasedRequestInterface
 {
     /**
      * @var string
+     */
+    protected $channelCode;
+
+    /**
+     * @var string
      * @SWG\Property(type="string")
      */
     protected $email;
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="plainPassword")
      */
     protected $plainPassword;
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="firstName")
      */
     protected $firstName;
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="lastName")
      */
     protected $lastName;
 
     /**
-     * @var string
-     * @SWG\Property(type="string")
-     */
-    protected $channelCode;
-
-    /**
      * @var bool
-     * @SWG\Property(type="boolean")
+     * @SWG\Property(type="boolean", property="subscribedToNewsletter")
      */
     protected $subscribedToNewsletter;
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="phoneNumber")
      */
     protected $phoneNumber;
 

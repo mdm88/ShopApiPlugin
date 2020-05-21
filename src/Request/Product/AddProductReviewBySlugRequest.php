@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sylius\ShopApiPlugin\Request\Product;
 
+use Swagger\Annotations as SWG;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\ShopApiPlugin\Command\CommandInterface;
 use Sylius\ShopApiPlugin\Command\Product\AddProductReviewBySlug;
@@ -12,22 +13,39 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AddProductReviewBySlugRequest implements ChannelBasedRequestInterface
 {
-    /** @var string */
-    protected $slug;
-
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $channelCode;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
+    protected $slug;
+
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $title;
 
-    /** @var int */
+    /**
+     * @var int
+     * @SWG\Property(type="integer")
+     */
     protected $rating;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $comment;
 
-    /** @var string */
+    /**
+     * @var string
+     * @SWG\Property(type="string")
+     */
     protected $email;
 
     protected function __construct(Request $request, string $channelCode)

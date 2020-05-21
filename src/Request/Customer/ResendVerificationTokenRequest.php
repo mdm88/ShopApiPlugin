@@ -15,15 +15,14 @@ class ResendVerificationTokenRequest implements ChannelBasedRequestInterface
 {
     /**
      * @var string
-     * @SWG\Property(type="string")
      */
-    protected $email;
+    protected $channelCode;
 
     /**
      * @var string
      * @SWG\Property(type="string")
      */
-    protected $channelCode;
+    protected $email;
 
     protected function __construct(Request $request, string $channelCode)
     {
