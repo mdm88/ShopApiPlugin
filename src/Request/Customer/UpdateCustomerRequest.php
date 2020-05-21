@@ -16,6 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
 class UpdateCustomerRequest implements ShopUserBasedRequestInterface
 {
     /**
+     * @var string|null
+     */
+    protected $email;
+
+    /**
      * @var string
      * @SWG\Property(type="string")
      */
@@ -26,12 +31,6 @@ class UpdateCustomerRequest implements ShopUserBasedRequestInterface
      * @SWG\Property(type="string")
      */
     protected $lastName;
-
-    /**
-     * @var string|null
-     * @SWG\Property(type="string")
-     */
-    protected $email;
 
     /**
      * @var DateTimeImmutable|null

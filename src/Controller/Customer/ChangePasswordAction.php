@@ -5,6 +5,9 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 use Doctrine\Common\Persistence\ObjectManager;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use Swagger\Annotations as SWG;
 use Sylius\Bundle\UserBundle\Form\Model\ChangePassword;
 use Sylius\Bundle\UserBundle\Form\Type\UserChangePasswordType;
 use Sylius\Bundle\UserBundle\UserEvents;
@@ -54,6 +57,34 @@ class ChangePasswordAction
         $this->manager = $manager;
     }
 
+    /**
+     * Updates the password of the user that is currently logged in.
+     *
+     * @SWG\Tag(name="Users")
+     * @SWG\Parameter(
+     *     name="content",
+     *     in="body",
+     *     required=true,
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Customer\ChangePasswordRequest::class)
+     * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="Update password request success."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="User token invalid"
+     * )
+     * @Security(name="Bearer")
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function __invoke(Request $request): Response
     {
         if (!$this->loggedInUserProvider->isUserLoggedIn()) {
