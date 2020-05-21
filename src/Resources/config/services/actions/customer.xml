@@ -80,5 +80,10 @@
             <argument type="service" id="form.factory" />
             <argument type="service" id="doctrine.orm.default_entity_manager"/>
         </service>
+
+        <service
+            id="sylius.shop_api_plugin.controller.customer.login"
+            class="Sylius\ShopApiPlugin\Controller\Customer\LoginAction"
+        />
     </services>
 </container>

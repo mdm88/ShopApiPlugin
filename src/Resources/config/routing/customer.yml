@@ -15,3 +15,9 @@ sylius_shop_api_change_password:
     methods: [PUT]
     defaults:
         _controller: sylius.shop_api_plugin.controller.customer.change_password_action
+
+sylius_shop_api_login:
+    path: /shop-api/login
+    methods: [POST]
+    defaults:
+        _controller: sylius.shop_api_plugin.controller.customer.login_action

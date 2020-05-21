@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Sylius\ShopApiPlugin\Controller;
+namespace Sylius\ShopApiPlugin\Controller\Customer;
 
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
 
-final class Login
+final class LoginAction
 {
     /**
      * @SWG\Post(
