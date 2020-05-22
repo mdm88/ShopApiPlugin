@@ -6,6 +6,7 @@ namespace Sylius\ShopApiPlugin\Controller\Customer;
 
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Sylius\ShopApiPlugin\CommandProvider\CommandProviderInterface;
 use Sylius\ShopApiPlugin\Factory\ValidationErrorViewFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -52,6 +53,11 @@ final class VerifyAccountAction
      * @SWG\Response(
      *     response=204,
      *     description="User unlocked."
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
      * )
      *
      * @param Request $request

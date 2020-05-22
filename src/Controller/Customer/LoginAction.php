@@ -10,7 +10,9 @@ use Swagger\Annotations as SWG;
 final class LoginAction
 {
     /**
-     * User login.
+     * Logs the user in and returns the token.
+     *
+     * This route is needed to log the user in and get an access token.
      *
      * @SWG\Tag(name="Users")
      * @SWG\Parameter(
@@ -21,8 +23,13 @@ final class LoginAction
      * )
      * @SWG\Response(
      *     response="200",
-     *     description="An example resource",
+     *     description="User was logged in.",
      *     @Model(type=Sylius\ShopApiPlugin\View\Customer\LoginSuccessView::class)
+     * )
+     * @SWG\Response(
+     *     response="401",
+     *     description="Login failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
      * )
      */
     public function __invoke()

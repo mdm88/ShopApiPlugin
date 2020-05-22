@@ -75,6 +75,11 @@ final class UpdateCustomerAction
      *     response=401,
      *     description="User token invalid"
      * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
      * @Security(name="Bearer")
      *
      * @param Request $request
