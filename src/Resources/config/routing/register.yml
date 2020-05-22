@@ -26,4 +26,4 @@ sylius_shop_api_password_reset:
     path: /password-reset/{token}
     methods: [PUT]
     defaults:
-        _controller: sylius.controller.shop_user:resetPasswordAction
+        _controller: sylius.shop_api_plugin.controller.customer.reset_password_action

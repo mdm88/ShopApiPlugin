@@ -82,6 +82,24 @@
         </service>
 
         <service
+            id="sylius.shop_api_plugin.controller.customer.reset_password_action"
+            class="Sylius\ShopApiPlugin\Controller\Customer\ResetPasswordAction"
+        >
+            <argument type="service" id="fos_rest.view_handler" />
+            <argument type="service" id="sylius.shop_api_plugin.factory.validation_error_view_factory" />
+            <argument type="service">
+                <service class="Sylius\Component\Resource\Metadata\Metadata">
+                    <argument>sylius.shop_user</argument>
+                    <factory service="sylius.resource_registry" method="get"/>
+                </service>
+            </argument>
+            <argument type="service" id="sylius.repository.shop_user" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+        </service>
+
+        <service
             id="sylius.shop_api_plugin.controller.customer.login_action"
             class="Sylius\ShopApiPlugin\Controller\Customer\LoginAction"
         />

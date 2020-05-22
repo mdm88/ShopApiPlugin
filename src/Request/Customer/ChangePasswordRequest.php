@@ -14,8 +14,8 @@ class ChangePasswordRequest
     protected $currentPassword;
 
     /**
-     * @var ResetPasswordRequest
-     * @SWG\Property(ref=@Model(type=ResetPasswordRequest::class), property="newPassword")
+     * @var ResetPassword
+     * @SWG\Property(ref=@Model(type=ResetPassword::class), property="newPassword")
      */
     protected $newPassword;
 }

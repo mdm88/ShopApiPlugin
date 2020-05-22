@@ -33,9 +33,7 @@ class ChangePasswordAction
     /** @var EventDispatcherInterface */
     private $eventDispatcher;
 
-    /**
-     * @var FormFactory
-     */
+    /** @var FormFactory */
     private $formFactory;
 
     /** @var ObjectManager */

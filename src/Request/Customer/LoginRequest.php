@@ -20,7 +20,7 @@ class LoginRequest
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", description="The token of the current cart which should be assign to the customer")
      */
     protected $token;
 }

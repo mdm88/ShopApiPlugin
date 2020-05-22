@@ -2,19 +2,14 @@
 
 namespace Sylius\ShopApiPlugin\Request\Customer;
 
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
 
 class ResetPasswordRequest
 {
     /**
-     * @var string
-     * @SWG\Property(type="string")
+     * @var ResetPassword
+     * @SWG\Property(ref=@Model(type=ResetPassword::class))
      */
-    protected $first;
-
-    /**
-     * @var string
-     * @SWG\Property(type="string")
-     */
-    protected $second;
+    protected $password;
 }
