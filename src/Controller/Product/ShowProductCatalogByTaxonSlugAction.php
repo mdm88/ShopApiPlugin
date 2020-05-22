@@ -76,6 +76,11 @@ final class ShowProductCatalogByTaxonSlugAction
      *     description="Array of latest products.",
      *     @Model(type=Sylius\ShopApiPlugin\View\Product\PageView::class)
      * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Taxon not found.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
      *
      * @param Request $request
      * @return Response

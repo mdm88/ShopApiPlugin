@@ -67,6 +67,11 @@ final class ShowTaxonDetailsAction
      *     description="Requested taxon with children.",
      *     @Model(type=Sylius\ShopApiPlugin\View\Taxon\TaxonDetailsView::class)
      * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Invalid input, validation failed.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
      *
      * @param Request $request
      * @return Response

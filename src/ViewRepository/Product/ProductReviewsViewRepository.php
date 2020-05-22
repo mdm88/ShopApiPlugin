@@ -57,9 +57,13 @@ final class ProductReviewsViewRepository implements ProductReviewsViewRepository
     public function getByProductSlug(string $productSlug, string $channelCode, PaginatorDetails $paginatorDetails, ?string $localeCode): PageView
     {
         $channel = $this->getChannel($channelCode);
-        $localeCode = $this->supportedLocaleProvider->provide($localeCode, $channel);
 
-        $reviews = $this->productReviewRepository->findAcceptedByProductSlugAndChannel($productSlug, $localeCode, $channel);
+        $localeCode = $this->supportedLocaleProvider->provide($localeCode, $channel);
+        $product = $this->productRepository->findOneByChannelAndSlug($channel, $localeCode, $productSlug);
+        Assert::notNull($product);
+        Assert::true($product->hasChannel($channel));
+
+        $reviews = $this->productReviewRepository->findBy(['reviewSubject' => $product->getId(), 'status' => ReviewInterface::STATUS_ACCEPTED]);
 
         $paginatorDetails->addToParameters('slug', $productSlug);
 

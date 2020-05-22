@@ -61,6 +61,11 @@ final class ShowProductDetailsBySlugAction
      *     description="Show a product with the given slug.",
      *     @Model(type=Sylius\ShopApiPlugin\View\Product\ProductView::class)
      * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Product not found.",
+     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
+     * )
      *
      * @param Request $request
      * @return Response
