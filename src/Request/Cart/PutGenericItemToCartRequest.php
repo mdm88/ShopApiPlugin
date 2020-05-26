@@ -10,7 +10,7 @@ class PutGenericItemToCartRequest
 {
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="productCode")
      */
     protected $productCode;
 
@@ -22,7 +22,7 @@ class PutGenericItemToCartRequest
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="variantCode")
      */
     protected $variantCode;
 
