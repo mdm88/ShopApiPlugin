@@ -48,7 +48,7 @@ final class SummarizeAction
      *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
      * )
      * @SWG\Response(
-     *     response=400,
+     *     response=404,
      *     description="Invalid input, validation failed.",
      *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
      * )

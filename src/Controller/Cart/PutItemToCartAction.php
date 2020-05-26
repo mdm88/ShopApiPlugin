@@ -74,7 +74,7 @@ final class PutItemToCartAction
      *     in="body",
      *     description="Description of an item. The smallest required amount of data is a product code and quantity for a simple product. Configurable products will require an additional `variant_code` or `options` field, but never both.",
      *     required=true,
-     *     @Model(type=Sylius\ShopApiPlugin\Request\Cart\PutSimpleItemToCartRequest::class)
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Cart\PutGenericItemToCartRequest::class)
      * )
      * @SWG\Response(
      *     response=201,

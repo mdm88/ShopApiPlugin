@@ -54,7 +54,7 @@ final class DropCartAction
      *     required=true
      * )
      * @SWG\Response(
-     *     response=201,
+     *     response=204,
      *     description="Cart has been dropped."
      * )
      * @SWG\Response(

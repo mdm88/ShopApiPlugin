@@ -66,11 +66,6 @@ final class PickupCartAction
      *     description="Cart has been picked up",
      *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
      * )
-     * @SWG\Response(
-     *     response=400,
-     *     description="Invalid input, validation failed.",
-     *     @Model(type=Sylius\ShopApiPlugin\View\ValidationErrorView::class)
-     * )
      *
      * @param Request $request
      * @return Response

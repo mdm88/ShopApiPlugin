@@ -79,7 +79,7 @@ final class PutItemsToCartAction
      *     required=true,
      *     @SWG\Schema(
      *         type="array",
-     *         @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\Request\Cart\PutSimpleItemToCartRequest::class))
+     *         @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\Request\Cart\PutGenericItemToCartRequest::class))
      *     )
      * )
      * @SWG\Response(
