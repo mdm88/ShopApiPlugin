@@ -30,7 +30,7 @@ class PutGenericItemToCartRequest
      * @var array|
      * @SWG\Property(
      *     type="object",
-     *     additionalProperties={type="string"}
+     *     additionalProperties=@SWG\Property(type="string")
      * )
      */
     protected $options;
