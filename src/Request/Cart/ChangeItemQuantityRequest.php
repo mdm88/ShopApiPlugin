@@ -14,13 +14,11 @@ class ChangeItemQuantityRequest implements RequestInterface
 {
     /**
      * @var string
-     * @SWG\Property(type="string")
      */
     protected $token;
 
     /**
      * @var mixed
-     * @SWG\Property(type="string")
      */
     protected $id;
 

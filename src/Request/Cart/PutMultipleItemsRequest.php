@@ -16,5 +16,5 @@ class PutMultipleItemsRequest
      *     @SWG\Items(ref=@Model(type=Sylius\ShopApiPlugin\Request\Cart\PutGenericItemToCartRequest::class))
      * )
      */
-    public $items;
+    protected $items;
 }
