@@ -58,7 +58,7 @@ final class ChooseShippingMethodAction
      *     name="contents",
      *     in="body",
      *     required=true,
-     *     @Model(type="Sylius\ShopApiPlugin\Request\Checkout\ChooseShippingMethodRequest::class")
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Checkout\ChooseShippingMethodRequest::class)
      * )
      * @SWG\Response(
      *     response=204,

@@ -57,7 +57,7 @@ final class AddressAction
      *     name="contents",
      *     in="body",
      *     required=true,
-     *     @Model(type="Sylius\ShopApiPlugin\Request\Checkout\AddressOrderRequest::class")
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Checkout\AddressOrderRequest::class)
      * )
      * @SWG\Response(
      *     response=204,

@@ -64,7 +64,7 @@ final class CompleteOrderAction
      * @SWG\Parameter(
      *     name="contents",
      *     in="body",
-     *     @Model(type="Sylius\ShopApiPlugin\Request\Checkout\CompleteOrderRequest::class")
+     *     @Model(type=Sylius\ShopApiPlugin\Request\Checkout\CompleteOrderRequest::class)
      * )
      * @SWG\Response(
      *     response=204,
