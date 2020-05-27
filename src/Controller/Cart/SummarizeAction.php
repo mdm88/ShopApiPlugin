@@ -43,7 +43,7 @@ final class SummarizeAction
      *     required=true
      * )
      * @SWG\Response(
-     *     response=201,
+     *     response=200,
      *     description="Current state of the cart, with calculated prices and related items.",
      *     @Model(type=Sylius\ShopApiPlugin\View\Cart\CartSummaryView::class)
      * )
