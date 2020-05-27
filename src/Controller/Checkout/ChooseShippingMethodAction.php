@@ -48,7 +48,7 @@ final class ChooseShippingMethodAction
      *     required=true
      * )
      * @SWG\Parameter(
-     *     name="id",
+     *     name="shippingId",
      *     in="path",
      *     type="string",
      *     description="Order number of shipment for which shipping method should be specified.",

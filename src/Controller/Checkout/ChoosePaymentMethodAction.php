@@ -48,7 +48,7 @@ final class ChoosePaymentMethodAction
      *     required=true
      * )
      * @SWG\Parameter(
-     *     name="id",
+     *     name="paymentId",
      *     in="path",
      *     type="string",
      *     description="Order number of payment for which payment method should be specified.",

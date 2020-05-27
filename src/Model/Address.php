@@ -12,13 +12,13 @@ final class Address
 {
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="firstName")
      */
     private $firstName;
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="lastName")
      */
     private $lastName;
 
@@ -30,7 +30,7 @@ final class Address
 
     /**
      * @var string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="countryCode")
      */
     private $countryCode;
 
@@ -48,13 +48,13 @@ final class Address
 
     /**
      * @var ?string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="provinceName")
      */
     private $provinceName;
 
     /**
      * @var ?string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="provinceCode")
      */
     private $provinceCode;
 
@@ -66,7 +66,7 @@ final class Address
 
     /**
      * @var ?string
-     * @SWG\Property(type="string")
+     * @SWG\Property(type="string", property="phoneNumber")
      */
     private $phoneNumber;
 
