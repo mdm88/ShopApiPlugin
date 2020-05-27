@@ -16,7 +16,6 @@ class AddressOrderRequest implements RequestInterface
 {
     /**
      * @var string|null
-     * @SWG\Property(type="string")
      */
     protected $token;
 

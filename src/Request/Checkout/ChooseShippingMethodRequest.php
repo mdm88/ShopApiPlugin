@@ -14,13 +14,11 @@ class ChooseShippingMethodRequest implements RequestInterface
 {
     /**
      * @var string|null
-     * @SWG\Property(type="string")
      */
     protected $token;
 
     /**
      * @var string|null
-     * @SWG\Property(type="string", property="shippingId")
      */
     protected $shippingId;
 
